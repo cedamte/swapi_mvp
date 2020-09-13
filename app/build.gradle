@@ -55,4 +55,8 @@ dependencies {
 
     // Timber
     implementation 'com.jakewharton.timber:timber:4.7.1'
+
+
+    // OkHttp interceptor
+    implementation "com.squareup.okhttp3:logging-interceptor:4.6.0"
 }

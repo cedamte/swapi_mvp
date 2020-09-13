@@ -1,6 +1,7 @@
-package com.aten5.swapi_mvp
+package com.aten5.swapi_mvp.app
 
 import android.app.Application
+import com.aten5.swapi_mvp.BuildConfig
 import timber.log.Timber
 
 class SWAPP : Application() {

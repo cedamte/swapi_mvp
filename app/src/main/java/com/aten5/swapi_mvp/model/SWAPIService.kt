@@ -11,5 +11,5 @@ interface SWAPIService {
     fun getCharactersList(): Single<Characters>
 
     @GET(BuildConfig.END_POINT)
-    fun getCharacterDetail(@Query("id") name: String): Single<Characters>
+    fun getCharacterDetail(@Query("search") name: String): Single<Characters>
 }

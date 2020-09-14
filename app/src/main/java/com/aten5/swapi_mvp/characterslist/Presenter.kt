@@ -1,7 +1,6 @@
 package com.aten5.swapi_mvp.characterslist
 
 import com.aten5.swapi_mvp.model.DataSource
-import com.aten5.swapi_mvp.model.RetrofitClient
 import javax.inject.Inject
 
 class Presenter @Inject constructor(private val dataSource: DataSource) :

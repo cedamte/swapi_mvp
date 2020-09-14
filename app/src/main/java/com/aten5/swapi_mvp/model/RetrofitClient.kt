@@ -35,10 +35,8 @@ class RetrofitClient(private val listener: DataSource.Listener) : DataSource {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ chara ->
-                Timber.d("🌟 $chara")
                 listener.onSuccess(chara)
             }, { error ->
-                Timber.d("🌟 $error")
                 listener.onFailure(error)
             })
     }

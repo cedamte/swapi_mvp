@@ -42,6 +42,15 @@ class RetrofitClient(private val listener: DataSource.Listener) : DataSource {
     }
 
     override fun getCharacterDetail(name: String) {
-        TODO("Not yet implemented")
+        service.getCharacterDetail(name = name)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({ chara ->
+                Timber.d("🌟 $chara")
+                listener.onSuccess(chara)
+            }, { error ->
+                Timber.d("🌟 $error")
+                listener.onFailure(error)
+            })
     }
 }

@@ -28,6 +28,11 @@ class MainActivity : AppCompatActivity(), CharactersContract.View {
             adapter = viewAdapter
         }
 
+        // Retry reloading
+        binding.btnRetry.setOnClickListener {
+            presenter.getData()
+        }
+
         presenter.getData()
     }
 

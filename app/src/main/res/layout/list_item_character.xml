@@ -15,5 +15,6 @@
         android:padding="16dp"
         android:text="@{result.name}"
         android:textAppearance="?attr/textAppearanceListItem"
+        style="@style/TextColor"
         tools:text="Luke Skywalker" />
 </layout>

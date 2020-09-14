@@ -15,7 +15,7 @@ import com.aten5.swapi_mvp.model.data.ResultData
 
 class MainActivity : AppCompatActivity(), CharactersContract.View {
     private lateinit var binding: ActivityMainBinding
-    private val presenter = Presenter(this)
+    private val presenter = Presenter()
 
 
     private val onClickItem = object : OnClickItem {
@@ -37,12 +37,12 @@ class MainActivity : AppCompatActivity(), CharactersContract.View {
             adapter = viewAdapter
         }
 
+        presenter.setView(this)
+        presenter.getData()
         // Retry reloading
         binding.btnRetry.setOnClickListener {
             presenter.getData()
         }
-
-        presenter.getData()
     }
 
     override fun showLoading() {

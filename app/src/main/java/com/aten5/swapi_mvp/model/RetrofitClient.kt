@@ -1,7 +1,9 @@
 package com.aten5.swapi_mvp.model
 
 import com.aten5.swapi_mvp.BuildConfig
+import com.aten5.swapi_mvp.model.data.Characters
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.schedulers.Schedulers
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -9,7 +11,7 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 
-class RetrofitClient(private val listener: DataSource.Listener) : DataSource {
+class RetrofitClient : DataSource {
 
     private val rxAdapter = RxJava3CallAdapterFactory.create()
 
@@ -29,25 +31,17 @@ class RetrofitClient(private val listener: DataSource.Listener) : DataSource {
     private val service: SWAPIService = retrofit.create(SWAPIService::class.java)
 
 
-    override fun getCharactersList() {
-        service.getCharactersList()
+    override fun getCharactersList(): Single<Characters> {
+        return service.getCharactersList()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ chara ->
-                listener.onSuccess(chara)
-            }, { error ->
-                listener.onFailure(error)
-            })
     }
 
-    override fun getCharacterDetail(name: String) {
-        service.getCharacterDetail(name = name)
+    override fun getCharacterDetail(name: String): Single<Characters> {
+        return service.getCharacterDetail(name = name)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ chara ->
-                listener.onSuccess(chara)
-            }, { error ->
-                listener.onFailure(error)
-            })
+
     }
 }
+

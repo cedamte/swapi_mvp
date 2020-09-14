@@ -13,7 +13,7 @@ import com.aten5.swapi_mvp.model.data.ResultData
 class DetailsActivity : AppCompatActivity(), DetailsContract.View {
 
     private lateinit var binding: ActivityMainBinding
-    private val presenter = Presenter(this)
+    private val presenter = Presenter()
 
     private val viewAdapter = DetailsAdapter()
 
@@ -27,14 +27,14 @@ class DetailsActivity : AppCompatActivity(), DetailsContract.View {
             adapter = viewAdapter
         }
 
+        val queryString = intent.getStringExtra("name")!!
 
+        presenter.setView(this)
+        presenter.getData(queryString)
         // Retry reloading
         binding.btnRetry.setOnClickListener {
-            presenter.getData(intent.getStringExtra("name")!!)
+            presenter.getData(queryString)
         }
-
-
-        presenter.getData(intent.getStringExtra("name")!!)
     }
 
     override fun showLoading() {

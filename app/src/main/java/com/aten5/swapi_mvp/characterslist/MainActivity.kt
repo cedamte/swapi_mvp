@@ -1,13 +1,14 @@
 package com.aten5.swapi_mvp.characterslist
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.aten5.swapi_mvp.R
+import com.aten5.swapi_mvp.characterdetails.DetailsActivity
 import com.aten5.swapi_mvp.databinding.ActivityMainBinding
 import com.aten5.swapi_mvp.model.data.Characters
 import com.aten5.swapi_mvp.model.data.ResultData
@@ -19,7 +20,7 @@ class MainActivity : AppCompatActivity(), CharactersContract.View {
 
     private val onClickItem = object : OnClickItem {
         override fun selectedItem(name: String) {
-            createToast(name)
+            launchDetailActivity(name)
         }
     }
 
@@ -66,9 +67,10 @@ class MainActivity : AppCompatActivity(), CharactersContract.View {
         binding.tvErrorMessage.text = error
     }
 
-    private fun createToast(name: String) {
-        Toast.makeText(this, "🚀 $name", Toast.LENGTH_LONG)
-            .show()
+    private fun launchDetailActivity(name: String) {
+        val intent = Intent(this, DetailsActivity::class.java)
+        intent.putExtra("name", name)
+        startActivity(intent)
     }
 
 }

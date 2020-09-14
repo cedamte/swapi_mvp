@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.aten5.swapi_mvp.R
-import com.aten5.swapi_mvp.databinding.ListItemCharacterBinding
+import com.aten5.swapi_mvp.databinding.CharacterDetailsBinding
 import com.aten5.swapi_mvp.model.data.Result
 
 class DetailsAdapter : RecyclerView.Adapter<DetailsAdapter.ViewHolder>() {
@@ -29,7 +29,7 @@ class DetailsAdapter : RecyclerView.Adapter<DetailsAdapter.ViewHolder>() {
 
     override fun getItemCount(): Int = list.size
 
-    class ViewHolder(private val binding: ListItemCharacterBinding) :
+    class ViewHolder(private val binding: CharacterDetailsBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
 
@@ -42,9 +42,9 @@ class DetailsAdapter : RecyclerView.Adapter<DetailsAdapter.ViewHolder>() {
             fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
 
-                val binding: ListItemCharacterBinding =
+                val binding: CharacterDetailsBinding =
                     DataBindingUtil.inflate(
-                        layoutInflater, R.layout.list_item_character,
+                        layoutInflater, R.layout.character_details,
                         parent, false
                     )
                 return ViewHolder(binding)

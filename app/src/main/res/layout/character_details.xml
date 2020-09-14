@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="result"
+            type="com.aten5.swapi_mvp.model.data.Result" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="@{result.name}"
+            android:textAppearance="?attr/textAppearanceListItem"
+            tools:text="Luke Skywalker" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="@{result.height}"
+            android:textAppearance="?attr/textAppearanceListItem"
+            tools:text="Luke Skywalker" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="@{result.hairColor}"
+            android:textAppearance="?attr/textAppearanceListItem"
+            tools:text="Luke Skywalker" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="@{result.eyeColor}"
+            android:textAppearance="?attr/textAppearanceListItem"
+            tools:text="Luke Skywalker" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="@{result.birthYear}"
+            android:textAppearance="?attr/textAppearanceListItem"
+            tools:text="Luke Skywalker" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="@{result.gender}"
+            android:textAppearance="?attr/textAppearanceListItem"
+            tools:text="Luke Skywalker" />
+    </LinearLayout>
+</layout>

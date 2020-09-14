@@ -22,44 +22,53 @@
             android:textAppearance="?attr/textAppearanceListItem"
             tools:text="Luke Skywalker" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray" />
+
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
             android:text="@{result.height}"
             android:textAppearance="?attr/textAppearanceListItem"
-            tools:text="Luke Skywalker" />
+            tools:text="172" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray" />
+
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:text="@{result.hairColor}"
+            android:text="@{result.mass}"
             android:textAppearance="?attr/textAppearanceListItem"
-            tools:text="Luke Skywalker" />
+            tools:text="77" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray" />
+
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:text="@{result.eyeColor}"
+            android:text="@{result.created}"
             android:textAppearance="?attr/textAppearanceListItem"
-            tools:text="Luke Skywalker" />
+            tools:text="2014-12-09T13:50:51.644000Z" />
 
-        <TextView
+        <View
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="@{result.birthYear}"
-            android:textAppearance="?attr/textAppearanceListItem"
-            tools:text="Luke Skywalker" />
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="@{result.gender}"
-            android:textAppearance="?attr/textAppearanceListItem"
-            tools:text="Luke Skywalker" />
+
     </LinearLayout>
 </layout>

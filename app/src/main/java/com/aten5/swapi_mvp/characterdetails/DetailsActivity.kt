@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.aten5.swapi_mvp.R
 import com.aten5.swapi_mvp.databinding.ActivityMainBinding
@@ -25,7 +24,6 @@ class DetailsActivity : AppCompatActivity(), DetailsContract.View {
 
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(context)
-            addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))
             adapter = viewAdapter
         }
 

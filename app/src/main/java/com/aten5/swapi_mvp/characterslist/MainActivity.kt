@@ -8,14 +8,18 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.aten5.swapi_mvp.R
+import com.aten5.swapi_mvp.app.MyApplication
 import com.aten5.swapi_mvp.characterdetails.DetailsActivity
 import com.aten5.swapi_mvp.databinding.ActivityMainBinding
 import com.aten5.swapi_mvp.model.data.Characters
 import com.aten5.swapi_mvp.model.data.ResultData
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), CharactersContract.View {
     private lateinit var binding: ActivityMainBinding
-    private val presenter = Presenter()
+
+    @Inject
+    lateinit var presenter: Presenter
 
 
     private val onClickItem = object : OnClickItem {
@@ -28,6 +32,7 @@ class MainActivity : AppCompatActivity(), CharactersContract.View {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        (application as MyApplication).appComponent.inject(this)
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 

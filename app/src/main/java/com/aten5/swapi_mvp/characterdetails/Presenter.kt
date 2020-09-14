@@ -1,13 +1,12 @@
 package com.aten5.swapi_mvp.characterdetails
 
 import com.aten5.swapi_mvp.model.DataSource
-import com.aten5.swapi_mvp.model.RetrofitClient
+import javax.inject.Inject
 
-class Presenter : DetailsContract.Presenter {
+class Presenter @Inject constructor(private val dataSource: DataSource) :
+    DetailsContract.Presenter {
 
-    private val dataSource: DataSource = RetrofitClient()
-
-    lateinit var mView: DetailsContract.View
+    private lateinit var mView: DetailsContract.View
 
     override fun getData(name: String) {
         mView.showLoading()

@@ -2,6 +2,7 @@ package com.aten5.swapi_mvp.characterslist
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -13,9 +14,16 @@ import com.aten5.swapi_mvp.model.data.ResultData
 
 class MainActivity : AppCompatActivity(), CharactersContract.View {
     private lateinit var binding: ActivityMainBinding
-
-    private val viewAdapter = CharactersAdapter()
     private val presenter = Presenter(this)
+
+
+    private val onClickItem = object : OnClickItem {
+        override fun selectedItem(name: String) {
+            createToast(name)
+        }
+    }
+
+    private val viewAdapter = CharactersAdapter(onClickItem)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,4 +65,10 @@ class MainActivity : AppCompatActivity(), CharactersContract.View {
         binding.errorContainer.visibility = View.VISIBLE
         binding.tvErrorMessage.text = error
     }
+
+    private fun createToast(name: String) {
+        Toast.makeText(this, "🚀 $name", Toast.LENGTH_LONG)
+            .show()
+    }
+
 }

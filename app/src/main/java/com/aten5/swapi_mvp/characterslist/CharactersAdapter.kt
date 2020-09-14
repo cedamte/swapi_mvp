@@ -8,7 +8,9 @@ import com.aten5.swapi_mvp.R
 import com.aten5.swapi_mvp.databinding.ListItemCharacterBinding
 import com.aten5.swapi_mvp.model.data.Result
 
-class CharactersAdapter : RecyclerView.Adapter<CharactersAdapter.ViewHolder>() {
+class CharactersAdapter(
+    private val onClickItem: OnClickItem
+) : RecyclerView.Adapter<CharactersAdapter.ViewHolder>() {
     private val list: MutableList<Result> = mutableListOf()
 
 
@@ -26,7 +28,8 @@ class CharactersAdapter : RecyclerView.Adapter<CharactersAdapter.ViewHolder>() {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = list[position]
         holder.bind(
-            item = item
+            item = item,
+            onClickItem = onClickItem
         )
     }
 
@@ -36,8 +39,11 @@ class CharactersAdapter : RecyclerView.Adapter<CharactersAdapter.ViewHolder>() {
         RecyclerView.ViewHolder(binding.root) {
 
 
-        fun bind(item: Result) {
+        fun bind(item: Result, onClickItem: OnClickItem) {
             binding.result = item
+            binding.root.setOnClickListener {
+                onClickItem.selectedItem(name = item.name)
+            }
         }
 
         companion object {
@@ -55,3 +61,9 @@ class CharactersAdapter : RecyclerView.Adapter<CharactersAdapter.ViewHolder>() {
     }
 
 }
+
+
+interface OnClickItem {
+    fun selectedItem(name: String)
+}
+

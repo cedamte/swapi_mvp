@@ -4,7 +4,7 @@ import android.app.Application
 import com.aten5.swapi_mvp.BuildConfig
 import timber.log.Timber
 
-class SWAPP : Application() {
+class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         if (BuildConfig.DEBUG) {

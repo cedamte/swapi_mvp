@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.aten5.swapi_mvp.R
 import com.aten5.swapi_mvp.databinding.ActivityMainBinding
-import com.aten5.swapi_mvp.interfaces.CharactersContract
 import com.aten5.swapi_mvp.model.data.Characters
 import com.aten5.swapi_mvp.model.data.ResultData
 

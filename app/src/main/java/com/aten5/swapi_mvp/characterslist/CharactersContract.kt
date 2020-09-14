@@ -1,4 +1,4 @@
-package com.aten5.swapi_mvp.interfaces
+package com.aten5.swapi_mvp.characterslist
 
 import com.aten5.swapi_mvp.model.data.ResultData
 
